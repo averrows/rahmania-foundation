@@ -1,0 +1,103 @@
+---
+import QRCode from "../assets/QRCode.png";
+---
+
+<section id="donate">
+  <div
+    id="donationModal"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50"
+  >
+    <div
+      class="bg-white rounded-lg sm:w-[50%] w-[80%] p-6 max-h-[90vh] relative overflow-y-auto"
+    >
+      <h3 class="text-2xl font-bold mb-4 text-center">Formulir Donasi</h3>
+      <div class="flex flex-col md:flex-row">
+        <div class="mb-6 flex flex-col items-center">
+          <img
+            src={QRCode.src}
+            alt="QR Code untuk Donasi"
+            class="mb-4 w-24 h-24 sm:w-32 sm:h-32"
+          />
+          <p class="text-gray-700 text-center">
+            Bank Jago Syariah<br />
+            509366981893<br />
+            a.n Muhammad Fadhil Abbas
+          </p>
+        </div>
+        <form class="md:ml-6 w-full">
+          <div class="md:border-l md:border-gray-300 md:pl-8 md:py-2">
+            <div class="mb-4">
+              <label class="block text-gray-700">Nama:</label>
+              <input
+                type="text"
+                class="w-full px-3 py-2 border rounded"
+                required
+              />
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">Komentar:</label>
+              <textarea
+                class="w-full px-3 py-2 border rounded"
+                rows="3"
+                required></textarea>
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">Jumlah Donasi:</label>
+              <input
+                type="number"
+                min="1"
+                class="w-full px-3 py-2 border rounded"
+                required
+              />
+            </div>
+          </div>
+          <div class="flex flex-row justify-end">
+            <button
+              type="button"
+              id="closeModal"
+              class="px-4 py-2 bg-gray-300 rounded mr-2">Batal</button
+            >
+            <button
+              type="submit"
+              class="px-4 py-2 bg-blue-600 text-white rounded">Kirim</button
+            >
+          </div>
+        </form>
+      </div>
+      <button
+        id="closeModalTop"
+        class="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+      >
+        &times;
+      </button>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const donationModal = document.getElementById("donationModal");
+    const closeModalButtons = document.querySelectorAll(
+      "#closeModal, #closeModalTop",
+    );
+
+    window.addEventListener("openDonateModal", () => {
+      donationModal.classList.remove("hidden");
+      document.body.classList.add("overflow-hidden");
+    });
+
+    closeModalButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        donationModal.classList.add("hidden");
+        document.body.classList.remove("overflow-hidden");
+      });
+    });
+
+    donationModal.addEventListener("click", (e) => {
+      if (e.target === donationModal) {
+        donationModal.classList.add("hidden");
+        document.body.classList.remove("overflow-hidden");
+      }
+    });
+  });
+</script>

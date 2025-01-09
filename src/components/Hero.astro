@@ -27,12 +27,12 @@ import Foto1 from "../assets/Foto1.jpeg";
         creating opportunities for underprivileged communities.
       </p>
       <div class="space-x-2 md:space-x-4">
-        <a
-          href="#donate"
+        <button
+          id="donateButton"
           class="inline-block bg-white text-blue-600 px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors text-sm md:text-base"
         >
           Donate Now
-        </a>
+        </button>
         <a
           href="#programs"
           class="inline-block border-2 border-white text-white px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors text-sm md:text-base"
@@ -62,3 +62,13 @@ import Foto1 from "../assets/Foto1.jpeg";
     animation: gradient-xy 20s ease infinite;
   }
 </style>
+
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+    const donateButton = document.getElementById('donateButton');
+
+    donateButton.addEventListener('click', () => {
+      window.dispatchEvent(new Event('openDonateModal'));
+    });
+  });
+</script>
