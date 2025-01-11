@@ -19,18 +19,18 @@ const { title, description, location, images, color = "#e6f2ef" } = Astro.props;
   <div class="relative w-full lg:w-3/5 grid grid-cols-2 gap-4">
     {images.map((image, index) => (
       <div
-        class={`absolute inset-0 ${
-          index === 0 ? 'w-screen lg:w-full h-48 lg:h-full' : ''
-        }`}
-        style={{
-          backgroundColor: index === 0 ? color : 'transparent',
-        }}
-      ></div>
-      <div
         class={`relative ${index === 0 ? 'col-span-2' : ''} ${
           index === 1 ? 'mt-12 lg:mt-0' : ''
         }`}
       >
+        <div
+          class={`absolute inset-0 ${
+            index === 0 ? 'w-screen lg:w-full h-48 lg:h-full' : ''
+          }`}
+          style={{
+            backgroundColor: index === 0 ? color : 'transparent',
+          }}
+        ></div>
 
         <Image
           src={image.src}
