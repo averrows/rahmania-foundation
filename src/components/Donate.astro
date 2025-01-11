@@ -8,7 +8,7 @@ import QRCode from "../assets/QRCode.jpeg";
     class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50"
   >
     <div
-      class="bg-white rounded-lg sm:w-[50%] w-[80%] p-6 max-h-[90vh] relative overflow-y-auto"
+      class="bg-white rounded-md sm:w-[50%] w-[80%] p-6 max-h-[90vh] relative overflow-y-auto"
     >
       <h3 class="text-2xl font-bold mb-4 text-center">Formulir Donasi</h3>
       <div class="flex flex-col md:flex-row">
@@ -51,15 +51,17 @@ import QRCode from "../assets/QRCode.jpeg";
               />
             </div>
           </div>
-          <div class="flex flex-row justify-end">
+          <div class="flex flex-row justify-end gap-2">
             <button
               type="button"
               id="closeModal"
-              class="px-4 py-2 bg-gray-300 rounded mr-2">Batal</button
+              class="px-8 py-2 bg-white border border-red-600 text-red-600 rounded"
+              >Batal</button
             >
             <button
               type="submit"
-              class="px-4 py-2 bg-blue-600 text-white rounded">Kirim</button
+              class="px-8 py-2 bg-white border border-blue-600 text-blue-600 rounded"
+              >Kirim</button
             >
           </div>
         </form>
@@ -78,7 +80,7 @@ import QRCode from "../assets/QRCode.jpeg";
   document.addEventListener("DOMContentLoaded", () => {
     const donationModal = document.getElementById("donationModal");
     const closeModalButtons = document.querySelectorAll(
-      "#closeModal, #closeModalTop",
+      "#closeModal, #closeModalTop"
     );
 
     window.addEventListener("openDonateModal", () => {
