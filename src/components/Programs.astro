@@ -8,9 +8,10 @@ import { Icon } from "astro-icon/components";
 const allPrograms = await getCollection("programs");
 ---
 
-<section id="programs" class="py-8 bg-gray-50 justify-items-center px-4">
+<section id="programs" class="py-8 bg-gray-50 px-4
+    sm:px-6
+    md:px-8">
   <div class="container
-    mx-auto
     flex
     flex-col
     text-left
@@ -73,11 +74,12 @@ const allPrograms = await getCollection("programs");
       }
     </div>
 
-    <div
+    <a
       class="flex flex-row text-lg justify-end mt-4 text-blue-600 items-center"
+      href="/programs"
     >
       Lihat Semua Program
       <Icon name="lucide:arrow-right" class="w-6 h-6" />
-    </div>
+    </a>
   </div>
 </section>
