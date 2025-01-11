@@ -10,20 +10,22 @@ const allPrograms = await getCollection("programs");
 <section id="programs" class="py-20 bg-gray-50 justify-items-center">
   <div class="container w-full">
     <h2 class="text-3xl md:text-4xl font-bold mb-12">
-      Program dan Aktivitas Kami
+      Di Rahmania, Kami mengubah hidup banyak orang
     </h2>
     <div
-      class="grid grid-cols-1 w-full sm:grid-cols-2 gap-8 py-8 px-4 justify-items-center"
+      class="flex flex-col w-full sm:grid-cols-2 gap-8 py-8 px-4 justify-items-center"
     >
       {
-        allPrograms.map((program) => (
-          <ProgramCard
-            title={program.data.title}
-            description={program.data.description}
-            location={program.data.location}
-            images={program.data.images}
-          />
-        ))
+        allPrograms
+          .slice(0, 2)
+          .map((program) => (
+            <ProgramCard
+              title={program.data.title}
+              description={program.data.description}
+              location={program.data.location}
+              images={program.data.images}
+            />
+          ))
       }
     </div>
   </div>
