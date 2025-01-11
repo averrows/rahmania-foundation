@@ -1,7 +1,7 @@
 {
     "id": "entrepreneurship",
-    "title": "Small & Medium Entrepreneurship",
-    "location": "Various places in Indonesia",
+    "title": "UKM",
+    "location": "Di berbagai tempat di Indonesia",
     "images": [
       {
         "src": "../../assets/Picture6.jpg",
@@ -9,10 +9,6 @@
       },
       {
         "src": "../../assets/Picture7.jpg",
-        "alt": "Small business support"
-      },
-      {
-        "src": "../../assets/Picture8.jpg",
         "alt": "Small business support"
       }
     ]

@@ -1,14 +1,14 @@
 {
     "id": "qurban",
     "title": "Qurban",
-    "location": "Various places in Indonesia",
+    "location": "Di berbagai tempat di Indonesia",
     "images": [
       {
-        "src": "../../assets/Picture11.jpg",
+        "src": "../../assets/Picture10.jpg",
         "alt": "Qurban distribution"
       },
       {
-        "src": "../../assets/Picture12.jpg",
+        "src": "../../assets/Picture11.jpg",
         "alt": "Qurban preparation"
       }
     ]
