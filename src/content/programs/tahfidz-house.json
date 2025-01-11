@@ -1,0 +1,15 @@
+{
+    "id": "tahfidz-house",
+    "title": "Ali Obed Bahajaj Tahfidz House",
+    "location": "Sukabumi – West Java",
+    "images": [
+      {
+        "src": "../../assets/Picture4.jpg",
+        "alt": "Tahfidz House students"
+      },
+      {
+        "src": "../../assets/Picture5.jpg",
+        "alt": "Tahfidz House building"
+      }
+    ]
+  }

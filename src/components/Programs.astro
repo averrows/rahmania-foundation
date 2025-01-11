@@ -1,35 +1,26 @@
 ---
+// import programsData from '../components/program.json';
+// const { programs } = programsData;
+import ProgramCard from "../components/ProgramCard.astro";
+import { getCollection } from "astro:content";
 
+const allPrograms = await getCollection("programs");
 ---
 
 <section id="programs" class="py-20 bg-gray-50">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-      Our Programs
+      Our Programs and Activites
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold mb-4">Scholarship Program</h3>
-        <p class="text-gray-600">
-          Supporting talented students from underprivileged backgrounds with
-          financial assistance.
-        </p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold mb-4">Skills Development</h3>
-        <p class="text-gray-600">
-          Providing vocational training and practical skills for career
-          advancement.
-        </p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold mb-4">Digital Literacy</h3>
-        <p class="text-gray-600">
-          Empowering communities with essential digital skills for the modern
-          world.
-        </p>
-      </div>
+    <div class="flex overflow-x-scroll scrollbar-hide py-8 px-4">
+      {allPrograms.map((program) => (
+        <ProgramCard
+          title={program.data.title}
+          description={program.data.description}
+          location={program.data.location}
+          images={program.data.images}
+        />
+      ))}
     </div>
   </div>
 </section>
-

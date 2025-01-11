@@ -1,0 +1,19 @@
+{
+    "id": "orphanage-aceh",
+    "title": "Rahmania Orphanage House",
+    "location": "Lhokseumawe - Aceh",
+    "images": [
+      {
+        "src": "../../assets/Picture13.jpg",
+        "alt": "Rahmania Orphanage House"
+      },
+      {
+        "src": "../../assets/Picture14.jpg",
+        "alt": "Children at Rahmania Orphanage"
+      },
+      {
+        "src": "../../assets/Picture15.jpg",
+        "alt": "Children at Rahmania Orphanage"
+      }
+    ]
+}

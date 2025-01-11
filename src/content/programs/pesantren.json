@@ -1,0 +1,15 @@
+{
+    "id": "pesantren",
+    "title": "Pesantren Sulaimaniyah",
+    "location": "Bireuen - Aceh",
+    "images": [
+      {
+        "src": "../../assets/Picture16.jpg",
+        "alt": "Pesantren Sulaimaniyah"
+      },
+      {
+        "src": "../../assets/Picture17.jpg",
+        "alt": "Students at Pesantren"
+      }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "id": "orphanage-sulawesi",
+    "title": "Orphanage House & Kindergarten",
+    "location": "Kasimbar – Central Sulawesi",
+    "images": [
+      {
+        "src": "../../assets/Picture24.jpg",
+        "alt": "Sulawesi Orphanage"
+      },
+      {
+        "src": "../../assets/Picture25.jpg",
+        "alt": "Kindergarten activities"
+      },
+      {
+        "src": "../../assets/Picture26.jpg",
+        "alt": "Kindergarten activities"
+      }
+    ]
+}

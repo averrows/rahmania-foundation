@@ -1,0 +1,16 @@
+{
+  "id": "rumah-pintar",
+  "title": "Rumah Pintar (Smart House)",
+  "location": "Jakarta",
+  "description": "Learning center for poor children",
+  "images": [
+    {
+      "src": "../../assets/Picture1.jpg",
+      "alt": "Students learning at Rumah Pintar"
+    },
+    {
+      "src": "../../assets/Picture2.jpg",
+      "alt": "Rumah Pintar facility"
+    }
+  ]
+}

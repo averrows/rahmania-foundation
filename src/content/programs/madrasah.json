@@ -1,0 +1,19 @@
+{
+    "id": "madrasah",
+    "title": "Madrasah Aliyah+ (MA+)",
+    "location": "Blang Panyang - Aceh",
+    "images": [
+      {
+        "src": "../../assets/Picture20.jpg",
+        "alt": "Madrasah Aliyah+"
+      },
+      {
+        "src": "../../assets/Picture22.jpg",
+        "alt": "Students at Madrasah"
+      },
+      {
+        "src": "../../assets/Picture23.jpg",
+        "alt": "Students at Madrasah"
+      }
+    ]
+}

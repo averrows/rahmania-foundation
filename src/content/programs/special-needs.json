@@ -1,0 +1,19 @@
+{
+    "id": "special-needs",
+    "title": "School for Children with Special Needs",
+    "location": "Trienggading - Aceh",
+    "images": [
+      {
+        "src": "../../assets/Picture17.jpg",
+        "alt": "Special needs school"
+      },
+      {
+        "src": "../../assets/Picture18.jpg",
+        "alt": "Students learning"
+      },
+      {
+        "src": "../../assets/Picture19.jpg",
+        "alt": "Students learning"
+      }
+    ]
+}
