@@ -2,17 +2,18 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
-import Timeline from "../components/Timeline.astro";
 import Programs from "../components/Programs.astro";
-import Contact from "../components/Contact.astro";
 import Donate from "../components/Donate.astro";
 ---
 
 <Layout title="Rahmania Foundation">
   <main>
     <Hero />
+    <div class="w-full h-[1px] bg-gray-200"></div>
     <Programs />
+    <div class="w-full h-[1px] bg-gray-200"></div>
     <About />
+    <div class="w-full h-[1px] bg-gray-200"></div>
     <Donate />
   </main>
 </Layout>

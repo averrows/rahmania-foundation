@@ -3,30 +3,81 @@
 // const { programs } = programsData;
 import { getCollection } from "astro:content";
 import ProgramCard from "../components/ProgramCard.astro";
-
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 const allPrograms = await getCollection("programs");
 ---
 
-<section id="programs" class="py-20 bg-gray-50 justify-items-center">
-  <div class="container w-full">
-    <h2 class="text-3xl md:text-4xl font-bold mb-12">
-      Di Rahmania, Kami mengubah hidup banyak orang
+<section id="programs" class="py-8 bg-gray-50 justify-items-center px-4">
+  <div class="container
+    mx-auto
+    flex
+    flex-col
+    text-left
+    z-10">
+    <h2 class="text-3xl md:text-4xl font-normal mb-4">
+      Rahmania
+      <span class="text-emerald-400">meningkatkan kualitas hidup</span>
+      <br />
+      banyak orang
     </h2>
-    <div
-      class="flex flex-col w-full sm:grid-cols-2 gap-8 py-8 px-4 justify-items-center"
-    >
+    <p class="text-lg md:text-xl mb-12">
+      Kami membantu anak yatim, UMKM, dan masyarakat kurang mampu untuk
+      meningkatkan kualitas hidup dengan pendidikan dan pelatihan bermodal.
+    </p>
+
+    <div class="w-full grid grid-cols-3 gap-4 hidden md:grid lg:grid">
       {
-        allPrograms
-          .slice(0, 2)
-          .map((program) => (
-            <ProgramCard
-              title={program.data.title}
-              description={program.data.description}
-              location={program.data.location}
-              images={program.data.images}
-            />
-          ))
+        allPrograms.slice(0, 3).map((program, index) => (
+          <div class="relative w-full grid grid-cols-2 gap-4">
+            {program.data.images.map((image, index) => (
+              <div
+                class={`relative ${
+                  index === 0 ? "col-span-2 bg-[#e6f2ef]" : ""
+                } ${index === 1 ? "mt-12" : ""}`}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  class={`w-full h-full ${
+                    index === 0 ? "p-8" : ""
+                  } object-cover lg:object-cover object-contain`}
+                />
+              </div>
+            ))}
+          </div>
+        ))
       }
+    </div>
+    <div class="lg:hidden md:hidden grid grid-cols-1 gap-4">
+      {
+        allPrograms.slice(0, 1).map((program, index) => (
+          <div class="relative w-full grid grid-cols-2 gap-4">
+            {program.data.images.map((image, index) => (
+              <div
+                class={`relative ${
+                  index === 0 ? "col-span-2 bg-[#e6f2ef]" : ""
+                } ${index === 1 ? "mt-12" : ""}`}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  class={`w-full h-full ${
+                    index === 0 ? "p-8" : ""
+                  } object-cover lg:object-cover object-contain`}
+                />
+              </div>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+
+    <div
+      class="flex flex-row text-lg justify-end mt-4 text-blue-600 items-center"
+    >
+      Lihat Semua Program
+      <Icon name="lucide:arrow-right" class="w-6 h-6" />
     </div>
   </div>
 </section>
