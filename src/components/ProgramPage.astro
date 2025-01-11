@@ -5,9 +5,14 @@ import ProgramCard from "../components/ProgramCard.astro";
 const allPrograms = await getCollection("programs");
 ---
 
-<section id="programs" class="py-36 bg-gray-50 px-4
+<section
+  id="programs"
+  class="py-36 bg-gray-50
+    justify-items-center
+    px-4
     sm:px-6
-    md:px-8">
+    md:px-8"
+>
   <div class="container
     flex
     flex-col
