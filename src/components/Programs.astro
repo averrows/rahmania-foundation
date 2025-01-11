@@ -7,22 +7,20 @@ import ProgramCard from "../components/ProgramCard.astro";
 const allPrograms = await getCollection("programs");
 ---
 
-<section id="programs" class="py-20 bg-gray-50">
-  <div class="container mx-auto px-4">
+<section id="programs" class="py-20 bg-gray-50 justify-items-center">
+  <div class="container mx-2 px-4 w-full">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
       Program dan Aktivitas Kami
     </h2>
-    <div class="flex overflow-x-scroll scrollbar-hide py-8 px-4">
-      {
-        allPrograms.map((program) => (
-          <ProgramCard
-            title={program.data.title}
-            description={program.data.description}
-            location={program.data.location}
-            images={program.data.images}
-          />
-        ))
-      }
+    <div class="grid grid-cols-1 w-full sm:grid-cols-2 gap-8 py-8 px-4 justify-items-center">
+      {allPrograms.map((program) => (
+        <ProgramCard
+          title={program.data.title}
+          description={program.data.description}
+          location={program.data.location}
+          images={program.data.images}
+        />
+      ))}
     </div>
   </div>
 </section>
