@@ -1,8 +1,8 @@
 ---
 // import programsData from '../components/program.json';
 // const { programs } = programsData;
-import ProgramCard from "../components/ProgramCard.astro";
 import { getCollection } from "astro:content";
+import ProgramCard from "../components/ProgramCard.astro";
 
 const allPrograms = await getCollection("programs");
 ---
@@ -10,17 +10,19 @@ const allPrograms = await getCollection("programs");
 <section id="programs" class="py-20 bg-gray-50">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-      Our Programs and Activites
+      Program dan Aktivitas Kami
     </h2>
     <div class="flex overflow-x-scroll scrollbar-hide py-8 px-4">
-      {allPrograms.map((program) => (
-        <ProgramCard
-          title={program.data.title}
-          description={program.data.description}
-          location={program.data.location}
-          images={program.data.images}
-        />
-      ))}
+      {
+        allPrograms.map((program) => (
+          <ProgramCard
+            title={program.data.title}
+            description={program.data.description}
+            location={program.data.location}
+            images={program.data.images}
+          />
+        ))
+      }
     </div>
   </div>
 </section>

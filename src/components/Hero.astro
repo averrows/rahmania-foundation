@@ -1,46 +1,76 @@
 ---
 import { Image } from "astro:assets";
 import Foto1 from "../assets/Foto1.jpeg";
+import Picture1 from "../assets/Picture1.jpg";
+import Picture2 from "../assets/Picture2.jpg";
+import Picture4 from "../assets/Picture4.jpg";
+import Picture5 from "../assets/Picture5.jpg";
+import Picture6 from "../assets/Picture6.jpg";
+import Picture7 from "../assets/Picture7.jpg";
+import Picture8 from "../assets/Picture8.jpg";
+import Picture9 from "../assets/Picture9.jpg";
+import Picture10 from "../assets/Picture10.jpg";
 ---
 
 <section
-  class="relative h-screen flex items-center justify-center bg-gradient-to-br from-emerald-400 via-blue-500 to-yellow-200 overflow-hidden animate-gradient-xy"
+  class="h-screen px-4
+    sm:px-6
+    md:px-8 flex md:flex items-center justify-center bg-gradient-to-br from-emerald-400 via-blue-500 to-yellow-100 overflow-hidden lg:flex-row md:flex-row flex-col-reverse gap-4"
 >
-  <Image
-    src={Foto1}
-    alt="Decorative image 1"
-    class="absolute left-0 bottom-0 w-full md:w-1/2 lg:w-1/3 opacity-30 md:opacity-50 object-cover h-full md:h-2/3"
-  />
-  <Image
-    src={Foto1}
-    alt="Decorative image 2"
-    class="absolute right-0 top-0 w-full md:w-1/2 lg:w-1/3 opacity-30 md:opacity-50 object-cover h-full md:h-2/3"
-  />
-
-  <div class="container mx-auto px-4 relative z-10">
-    <div class="text-center text-white">
-      <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6">
-        Empowering Lives Through Education
-      </h1>
-      <p class="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 max-w-2xl mx-auto">
-        Rahmania Foundation is dedicated to providing quality education and
-        creating opportunities for underprivileged communities.
-      </p>
-      <div class="space-x-2 md:space-x-4">
-        <button
-          id="donateButton"
-          class="inline-block bg-white text-blue-600 px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors text-sm md:text-base"
-        >
-          Donate Now
-        </button>
-        <a
-          href="#programs"
-          class="inline-block border-2 border-white text-white px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors text-sm md:text-base"
-        >
-          Our Programs
-        </a>
-      </div>
+  <div
+    class="container
+    mx-auto
+    flex
+    flex-col
+    text-white
+    text-left
+    z-10"
+  >
+    <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6">
+      Mengubah <span class="text-emerald-400">hidup</span>
+      <br />
+      dengan <span class="text-yellow-200">pendidikan</span>
+    </h1>
+    <p class="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 max-w-2xl">
+      Rahmania Foundation berkomitmen penuh dalam membantu anak-anak kurang
+      mampu, terutama anak yatim, untuk mendapatkan pendidikan yang layak bagi
+      masa depan mereka.
+    </p>
+    <div class="space-y-2">
+      <button
+        id="donateButton"
+        class="inline-block bg-white text-blue-600 px-6 md:px-8 py-2 md:py-3 rounded-md font-semibold hover:bg-blue-50 hover:scale-105 hover:shadow-lg transition-all duration-200 text-sm md:text-base"
+      >
+        Ikut Memajukan Pendidikan Bersama Kami!
+      </button>
+      <button
+        class="border-2 border-white text-white px-6 md:px-8 py-2 md:py-3 rounded-md font-semibold hover:bg-white hover:text-blue-600 hover:opacity-80 transition-colors text-sm md:text-base"
+      >
+        <a href="#programs">Lihat Program Kami</a>
+      </button>
     </div>
+  </div>
+  <div class="grid grid-cols-12 gap-4 max-w-4xl mx-auto">
+    <Image
+      src={Picture1}
+      alt="Education Impact"
+      class="col-span-6 row-span-2 w-full h-full object-cover"
+    />
+    <Image
+      src={Picture2}
+      alt="Education Impact"
+      class="col-span-6 w-full h-full object-cover"
+    />
+    <Image
+      src={Picture4}
+      alt="Education Impact"
+      class="col-span-3 w-full h-full object-cover"
+    />
+    <Image
+      src={Picture5}
+      alt="Education Impact"
+      class="col-span-3 w-full h-full object-cover"
+    />
   </div>
 </section>
 
@@ -64,11 +94,11 @@ import Foto1 from "../assets/Foto1.jpeg";
 </style>
 
 <script type="module">
-  document.addEventListener('DOMContentLoaded', () => {
-    const donateButton = document.getElementById('donateButton');
+  document.addEventListener("DOMContentLoaded", () => {
+    const donateButton = document.getElementById("donateButton");
 
-    donateButton.addEventListener('click', () => {
-      window.dispatchEvent(new Event('openDonateModal'));
+    donateButton.addEventListener("click", () => {
+      window.dispatchEvent(new Event("openDonateModal"));
     });
   });
 </script>

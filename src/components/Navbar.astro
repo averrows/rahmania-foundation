@@ -1,6 +1,14 @@
 ---
 import { Image } from "astro:assets";
 import Logo from "../assets/logo.png";
+
+const menus = [
+  { name: "Beranda", href: "/" },
+  { name: "Tentang Kami", href: "#about" },
+  { name: "Program", href: "#programs" },
+  { name: "Dampak", href: "#impact" },
+  { name: "Kontak", href: "#contact" },
+];
 ---
 
 <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-sm">
@@ -11,13 +19,13 @@ import Logo from "../assets/logo.png";
       </a>
 
       <div class="hidden md:flex space-x-8">
-        <a href="/" class="text-gray-700 hover:text-blue-600">Home</a>
-        <a href="#about" class="text-gray-700 hover:text-blue-600">About</a>
-        <a href="#programs" class="text-gray-700 hover:text-blue-600"
-          >Programs</a
-        >
-        <a href="#impact" class="text-gray-700 hover:text-blue-600">Impact</a>
-        <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+        {
+          menus.map((menu) => (
+            <a href={menu.href} class="text-gray-700 hover:text-blue-600">
+              {menu.name}
+            </a>
+          ))
+        }
       </div>
 
       <button class="md:hidden text-gray-700" id="mobile-menu-button">
@@ -41,17 +49,13 @@ import Logo from "../assets/logo.png";
   <!-- Mobile Menu -->
   <div class="md:hidden hidden" id="mobile-menu">
     <div class="px-4 py-2 space-y-2">
-      <a href="/" class="block text-gray-700 hover:text-blue-600">Home</a>
-      <a href="#about" class="block text-gray-700 hover:text-blue-600">About</a>
-      <a href="#programs" class="block text-gray-700 hover:text-blue-600"
-        >Programs</a
-      >
-      <a href="#impact" class="block text-gray-700 hover:text-blue-600"
-        >Impact</a
-      >
-      <a href="#contact" class="block text-gray-700 hover:text-blue-600"
-        >Contact</a
-      >
+      {
+        menus.map((menu) => (
+          <a href={menu.href} class="block text-gray-700 hover:text-blue-600">
+            {menu.name}
+          </a>
+        ))
+      }
     </div>
   </div>
 </nav>
