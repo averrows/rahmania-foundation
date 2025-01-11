@@ -15,62 +15,67 @@ import Picture10 from "../assets/Picture10.jpg";
 <section
   class="h-screen px-4
     sm:px-6
-    md:px-8 flex md:flex items-center justify-center bg-gradient-to-br from-emerald-400 via-blue-500 to-emerald-300 overflow-hidden lg:flex-row md:flex-row flex-col-reverse gap-4"
+    md:px-8 flex md:flex justify-items-center bg-gradient-to-br from-emerald-400 via-blue-500 to-emerald-300 overflow-hidden"
 >
   <div
     class="container
     mx-auto
     flex
-    flex-col
+    lg:flex-row md:flex-row flex-col-reverse gap-8
+    md:grid md:grid-cols-12
+    justify-center
+    items-center
     text-white
     text-left
     z-10"
   >
-    <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6">
-      Mengubah <span class="text-emerald-400">hidup</span>
-      <br />
-      dengan <span class="text-yellow-200">pendidikan</span>
-    </h1>
-    <p class="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 max-w-2xl">
-      Rahmania Foundation berkomitmen penuh dalam membantu anak-anak kurang
-      mampu, terutama anak yatim, untuk mendapatkan pendidikan yang layak bagi
-      masa depan mereka.
-    </p>
-    <div class="space-y-2">
-      <button
-        id="donateButton"
-        class="inline-block bg-white text-blue-600 px-6 md:px-8 py-2 md:py-3 rounded-md font-semibold hover:bg-blue-50 hover:scale-105 hover:shadow-lg transition-all duration-200 text-sm md:text-base"
-      >
-        Ikut mengubah hidup bersama kami!
-      </button>
-      <button
-        class="border-2 border-white text-white px-6 md:px-8 py-2 md:py-3 rounded-md font-semibold hover:bg-white hover:text-blue-600 hover:opacity-80 transition-colors text-sm md:text-base"
-      >
-        <a href="#programs">Lihat program</a>
-      </button>
+    <div class="flex flex-col gap-4 col-span-6">
+      <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold md:mb-6">
+        Mengubah <span class="text-emerald-400">hidup</span>
+        <br />
+        dengan <span class="text-yellow-200">pendidikan</span>
+      </h1>
+      <p class="text-lg sm:text-xl md:text-2xl max-w-2xl">
+        Rahmania Foundation berkomitmen penuh dalam membantu anak-anak kurang
+        mampu, terutama anak yatim, untuk mendapatkan pendidikan yang layak bagi
+        masa depan mereka.
+      </p>
+      <div class="space-y-2">
+        <button
+          id="donateButton"
+          class="inline-block bg-white text-blue-600 px-6 md:px-8 py-2 md:py-3 rounded-md font-semibold hover:bg-blue-50 hover:scale-105 hover:shadow-lg transition-all duration-200 text-sm md:text-base"
+        >
+          Ikut mengubah hidup bersama kami!
+        </button>
+        <button
+          class="border-2 border-white text-white px-6 md:px-8 py-2 md:py-3 rounded-md font-semibold hover:bg-white hover:text-blue-600 hover:opacity-80 transition-colors text-sm md:text-base"
+        >
+          <a href="#programs">Lihat program</a>
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="grid grid-cols-12 gap-4 max-w-4xl mx-auto">
-    <Image
-      src={Picture1}
-      alt="Education Impact"
-      class="col-span-6 row-span-2 w-full h-full object-cover"
-    />
-    <Image
-      src={Picture2}
-      alt="Education Impact"
-      class="col-span-6 w-full h-full object-cover"
-    />
-    <Image
-      src={Picture4}
-      alt="Education Impact"
-      class="col-span-3 w-full h-full object-cover"
-    />
-    <Image
-      src={Picture5}
-      alt="Education Impact"
-      class="col-span-3 w-full h-full object-cover"
-    />
+    <div class="grid grid-cols-12 gap-2 max-w-4xl mx-auto col-span-6">
+      <Image
+        src={Picture1}
+        alt="Education Impact"
+        class="col-span-6 row-span-2 w-full h-full object-cover"
+      />
+      <Image
+        src={Picture2}
+        alt="Education Impact"
+        class="col-span-6 w-full h-full object-cover"
+      />
+      <Image
+        src={Picture4}
+        alt="Education Impact"
+        class="col-span-3 w-full h-full object-cover"
+      />
+      <Image
+        src={Picture5}
+        alt="Education Impact"
+        class="col-span-3 w-full h-full object-cover"
+      />
+    </div>
   </div>
 </section>
 
