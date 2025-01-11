@@ -31,15 +31,16 @@ const allPrograms = await getCollection("programs");
       masyarakat kurang mampu.
     </p>
     <div
-      class="grid grid-cols-1 w-full sm:grid-cols-2 gap-8 py-8 px-4 justify-items-center"
+      class="flex flex-col w-full gap-8 sm:grid sm:grid-cols-2 sm:justify-items-center py-8 px-4"
     >
       {
-        allPrograms.map((program) => (
+        allPrograms.map((program, index) => (
           <ProgramCard
             title={program.data.title}
             description={program.data.description}
             location={program.data.location}
             images={program.data.images}
+            color={index % 2 === 0 ? "#34d399" : "#3b82f6"}
           />
         ))
       }
