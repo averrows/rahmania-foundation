@@ -28,7 +28,7 @@ const { title, description, location, images, color = "#e6f2ef" } = Astro.props;
         >
           <div
             class={`absolute inset-0 ${
-              index === 0 ? "w-screen lg:w-full h-48 lg:h-full" : ""
+              index === 0 ? "w-[92vw] lg:w-full h-48 lg:h-full" : ""
             }`}
             style={{
               backgroundColor: index === 0 ? color : "transparent",
@@ -79,39 +79,3 @@ const { title, description, location, images, color = "#e6f2ef" } = Astro.props;
     </div>
   </div>
 </div>
-
-<!-- <script>
-  function setupImageCarousel(card: HTMLElement) {
-    const images = card.querySelectorAll("img");
-    let currentIndex = 0;
-    let interval: number;
-
-    function showNextImage() {
-      images[currentIndex].classList.remove("opacity-100");
-      images[currentIndex].classList.add("opacity-0");
-      currentIndex = (currentIndex + 1) % images.length;
-      images[currentIndex].classList.remove("opacity-0");
-      images[currentIndex].classList.add("opacity-100");
-    }
-
-    card.addEventListener("mouseenter", () => {
-      if (images.length > 1) {
-        interval = setInterval(showNextImage, 1500);
-      }
-    });
-
-    card.addEventListener("mouseleave", () => {
-      clearInterval(interval);
-      images.forEach((img, index) => {
-        img.classList.toggle("opacity-0", index !== 0);
-        img.classList.toggle("opacity-100", index === 0);
-      });
-      currentIndex = 0;
-    });
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll(".program-card");
-    cards.forEach((card) => setupImageCarousel(card as HTMLElement));
-  });
-</script> -->

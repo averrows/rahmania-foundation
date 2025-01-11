@@ -1,24 +1,17 @@
 ---
-// import programsData from '../components/program.json';
-// const { programs } = programsData;
 import { getCollection } from "astro:content";
 import ProgramCard from "../components/ProgramCard.astro";
 
 const allPrograms = await getCollection("programs");
 ---
 
-<section
-  id="programs"
-  class="py-8 bg-gray-50 px-4
+<section id="programs" class="py-36 bg-gray-50 px-4
     sm:px-6
-    md:px-8
-    py-36"
->
+    md:px-8">
   <div class="container
     flex
     flex-col
-    text-left
-    z-10">
+    text-left">
     <h2 class="text-3xl md:text-4xl font-normal mb-4">
       Program Rahmania
       <span class="text-emerald-400">tersebar</span>
