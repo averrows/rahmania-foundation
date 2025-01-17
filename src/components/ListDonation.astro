@@ -1,87 +1,11 @@
 ---
+import Section from "./Section.astro";
+import DonationView from "./DonationView.tsx";
 
+const apiUrl = import.meta.env.RAHMANIA_API_URL;
 ---
-<h1>List of Donations</h1>
-<table class="min-w-full table-auto">
-  <thead>
-    <tr>
-      <th class="px-4 py-2">Donor</th>
-      <th class="px-4 py-2">Amount</th>
-      <th class="px-4 py-2">Message</th>
-    </tr>
-  </thead>
-  <tbody id="donationBody"></tbody>
-</table>
-<div class="flex justify-between mt-4">
-  <button id="prevBtn" class="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-400" disabled>
-    Previous
-  </button>
-  <button id="nextBtn" class="px-4 py-2 bg-blue-500 text-white rounded">
-    Next
-  </button>
-</div>
 
-<script>
-  let currentPage = 1;
-
-  async function fetchDonations(page:number) {
-    const response = await fetch(`http://localhost:3000/api/donation/getall?page=${page}&limit=10`);
-    const { data } = await response.json();
-    return data;
-  }
-
-  interface Donation {
-    donorName: string;
-    amount: number;
-    message: string;
-  }
-
-  async function renderDonations(page:number) {
-    const donationBody = document.getElementById("donationBody");
-    if (!donationBody) return;
-    const donations = await fetchDonations(page);
-
-    const donationRows = donations.map((d: Donation) => {
-      const row = document.createElement("tr");
-
-      const donorCell = document.createElement("td");
-      donorCell.classList.add("border", "px-4", "py-2");
-      donorCell.textContent = d.donorName;
-
-      const amountCell = document.createElement("td");
-      amountCell.classList.add("border", "px-4", "py-2");
-      amountCell.textContent = d.amount.toString();
-
-      const messageCell = document.createElement("td");
-      messageCell.classList.add("border", "px-4", "py-2");
-      messageCell.textContent = d.message;
-
-      row.append(donorCell, amountCell, messageCell);
-      return row;
-    });
-    donationBody.replaceChildren(...donationRows);
-
-    const prevBtn = document.getElementById("prevBtn") as HTMLButtonElement;
-    if (prevBtn) prevBtn.disabled = page === 1;
-  }
-
-  const nextBtn = document.getElementById("nextBtn");
-  if (nextBtn) {
-    nextBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      currentPage++;
-      renderDonations(currentPage);
-    });
-  }
-
-  const prevBtn = document.getElementById("prevBtn");
-  if (prevBtn) {
-    prevBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      currentPage--;
-      renderDonations(currentPage);
-    });
-  }
-
-  renderDonations(currentPage);
-</script>
+<Section>
+  <h1 class="text-4xl font-normal">Donasi Terbaru</h1>
+  <DonationView client:idle apiUrl={apiUrl}/>
+</Section>
