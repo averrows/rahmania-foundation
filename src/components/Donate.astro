@@ -24,7 +24,7 @@ import QRCode from "../assets/QRCode.jpeg";
             a.n Muhammad Fadhil Abbas
           </p>
         </div>
-        <form class="md:ml-6 w-full">
+        <form id="donationForm" class="md:ml-6 w-full">
           <div class="md:border-l md:border-gray-300 md:pl-8 md:py-2">
             <div class="mb-4">
               <label class="block text-gray-700">Nama:</label>
@@ -68,7 +68,7 @@ import QRCode from "../assets/QRCode.jpeg";
       </div>
       <button
         id="closeModalTop"
-        class="absolute top-2 right-2 text-gray-500 hover:text-gray-700  text-3xl px-4 py-2"
+        class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-3xl px-4 py-2"
       >
         &times;
       </button>
@@ -80,7 +80,7 @@ import QRCode from "../assets/QRCode.jpeg";
   document.addEventListener("DOMContentLoaded", () => {
     const donationModal = document.getElementById("donationModal");
     const closeModalButtons = document.querySelectorAll(
-      "#closeModal, #closeModalTop"
+      "#closeModal, #closeModalTop",
     );
 
     window.addEventListener("openDonateModal", () => {
@@ -99,6 +99,38 @@ import QRCode from "../assets/QRCode.jpeg";
       if (e.target === donationModal) {
         donationModal.classList.add("hidden");
         document.body.classList.remove("overflow-hidden");
+      }
+    });
+
+    const donationForm = document.getElementById("donationForm");
+    donationForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const nameValue = donationForm.querySelector('input[type="text"]').value;
+      const commentValue = donationForm.querySelector("textarea").value;
+      const amountValue = donationForm.querySelector(
+        'input[type="number"]',
+      ).value;
+
+      try {
+        const response = await fetch("http://localhost:3000/api/donation/add", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            donorName: nameValue,
+            message: commentValue,
+            amount: parseInt(amountValue, 10),
+          }),
+        });
+        if (response.ok) {
+          alert("Donation submitted!");
+          donationModal.classList.add("hidden");
+        } else {
+          alert("Something went wrong.");
+        }
+      } catch (error) {
+        console.error(error);
+        alert("Error while sending the donation.");
       }
     });
   });
