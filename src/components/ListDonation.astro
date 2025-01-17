@@ -39,10 +39,9 @@
   async function renderDonations(page:number) {
     const donationBody = document.getElementById("donationBody");
     if (!donationBody) return;
-    donationBody.innerHTML = "";
     const donations = await fetchDonations(page);
 
-    donations.forEach((d: Donation) => {
+    const donationRows = donations.map((d: Donation) => {
       const row = document.createElement("tr");
 
       const donorCell = document.createElement("td");
@@ -58,8 +57,9 @@
       messageCell.textContent = d.message;
 
       row.append(donorCell, amountCell, messageCell);
-      donationBody.appendChild(row);
+      return row;
     });
+    donationBody.replaceChildren(...donationRows);
 
     const prevBtn = document.getElementById("prevBtn") as HTMLButtonElement;
     if (prevBtn) prevBtn.disabled = page === 1;
@@ -67,7 +67,8 @@
 
   const nextBtn = document.getElementById("nextBtn");
   if (nextBtn) {
-    nextBtn.addEventListener("click", () => {
+    nextBtn.addEventListener("click", (e) => {
+      e.preventDefault();
       currentPage++;
       renderDonations(currentPage);
     });
@@ -75,7 +76,8 @@
 
   const prevBtn = document.getElementById("prevBtn");
   if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
+    prevBtn.addEventListener("click", (e) => {
+      e.preventDefault();
       currentPage--;
       renderDonations(currentPage);
     });
