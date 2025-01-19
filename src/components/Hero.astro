@@ -1,30 +1,50 @@
 ---
 import { Image } from "astro:assets";
-import Foto1 from "../assets/Foto1.jpeg";
 import Picture1 from "../assets/Picture1.jpg";
 import Picture2 from "../assets/Picture2.jpg";
 import Picture4 from "../assets/Picture4.jpg";
 import Picture5 from "../assets/Picture5.jpg";
-import Picture6 from "../assets/Picture6.jpg";
-import Picture7 from "../assets/Picture7.jpg";
-import Picture8 from "../assets/Picture8.jpg";
-import Picture9 from "../assets/Picture9.jpg";
-import Picture10 from "../assets/Picture10.jpg";
+
+import DonationView from "./DonationView.tsx";
+
+const apiUrl = import.meta.env.RAHMANIA_API_URL;
 ---
 
 <section
-  class="h-screen px-4 sm:px-6 md:px-8 md:py-32 flex md:flex justify-items-center bg-gradient-to-br from-emerald-400 via-blue-500 to-emerald-300 overflow-hidden"
+  class="min-h-screen px-4 sm:px-6 md:px-8 md:py-32 sm:py-32 py-24 flex md:flex justify-items-center bg-gradient-to-br from-emerald-400 via-blue-500 to-emerald-300 overflow-hidden"
 >
   <div
-    class="container mx-auto flex lg:flex-row md:flex-row flex-col-reverse gap-8 md:grid md:grid-cols-12 justify-center items-center text-white text-left z-10"
+    class="container mx-auto flex lg:flex-row md:flex-row flex-col gap-8 md:grid md:grid-cols-12 justify-center items-center text-white text-left z-10"
   >
     <div class="flex flex-col gap-4 md:col-span-6">
-      <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold md:mb-6">
+      <div class="grid grid-cols-12 gap-2 max-w-4xl mx-auto md:col-span-6">
+        <Image
+          src={Picture1}
+          alt="Education Impact"
+          class="col-span-6 row-span-2 w-full h-full object-cover"
+        />
+        <Image
+          src={Picture2}
+          alt="Education Impact"
+          class="col-span-6 w-full h-full object-cover"
+        />
+        <Image
+          src={Picture4}
+          alt="Education Impact"
+          class="col-span-3 w-full h-full object-cover"
+        />
+        <Image
+          src={Picture5}
+          alt="Education Impact"
+          class="col-span-3 w-full h-full object-cover"
+        />
+      </div>
+      <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold md:mb-2">
         Mengubah <span class="text-emerald-400">hidup</span>
         <br />
         dengan <span class="text-yellow-200">pendidikan</span>
       </h1>
-      <p class="text-lg sm:text-xl md:text-2xl max-w-2xl">
+      <p class="text-base sm:text-md md:text-xl max-w-2xl">
         Rahmania Foundation berkomitmen penuh dalam membantu anak-anak kurang
         mampu, terutama anak yatim, untuk mendapatkan pendidikan yang layak bagi
         masa depan mereka.
@@ -45,27 +65,11 @@ import Picture10 from "../assets/Picture10.jpg";
         </button>
       </div>
     </div>
-    <div class="grid grid-cols-12 gap-2 max-w-4xl mx-auto md:col-span-6">
-      <Image
-        src={Picture1}
-        alt="Education Impact"
-        class="col-span-6 row-span-2 w-full h-full object-cover"
-      />
-      <Image
-        src={Picture2}
-        alt="Education Impact"
-        class="col-span-6 w-full h-full object-cover"
-      />
-      <Image
-        src={Picture4}
-        alt="Education Impact"
-        class="col-span-3 w-full h-full object-cover"
-      />
-      <Image
-        src={Picture5}
-        alt="Education Impact"
-        class="col-span-3 w-full h-full object-cover"
-      />
+    <!-- <div class="md:col-span-6">
+      <DonationView client:idle apiUrl={apiUrl} />
+    </div> -->
+    <div class="md:col-span-6 md:gap-4 h-full">
+      <DonationView client:idle apiUrl={apiUrl} />
     </div>
   </div>
 </section>
