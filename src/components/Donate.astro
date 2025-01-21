@@ -1,6 +1,25 @@
 ---
 import QRCode from "../assets/QRCode.jpeg";
+import BankAccount from "./BankAccount.astro";
 const apiUrl = import.meta.env.RAHMANIA_API_URL as string;
+
+const bankAccounts = [
+  {
+    bankName: "Bank BCA Syariah",
+    accountNumber: "8880090512",
+    accountHolder: "Alya Fitria"
+  },
+  {
+    bankName: "Bank BSI",
+    accountNumber: "7297925657",
+    accountHolder: "Alya Fitria"
+  },
+  {
+    bankName: "Bank BCA",
+    accountNumber: "006935135499",
+    accountHolder: "Fatiyah Hanifah"
+  }
+];
 ---
 
 <section id="donate" data-api-url={apiUrl}>
@@ -19,11 +38,15 @@ const apiUrl = import.meta.env.RAHMANIA_API_URL as string;
             alt="QR Code untuk Donasi"
             class="mb-4 w-24 h-24 sm:w-32 sm:h-32"
           />
-          <p class="text-gray-700 text-center">
-            Bank Jago Syariah<br />
-            509366981893<br />
-            a.n Muhammad Fadhil Abbas
-          </p>
+          <div class="space-y-4">
+            {bankAccounts.map(account => (
+              <BankAccount 
+                bankName={account.bankName}
+                accountNumber={account.accountNumber}
+                accountHolder={account.accountHolder}
+              />
+            ))}
+          </div>
         </div>
         <form id="donationForm" class="md:ml-6 w-full">
           <div class="md:border-l md:border-gray-300 md:pl-8 md:py-2">

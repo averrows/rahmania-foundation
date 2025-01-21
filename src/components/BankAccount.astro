@@ -1,0 +1,23 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  bankName: string;
+  accountNumber: string;
+  accountHolder: string;
+}
+
+const { bankName, accountNumber, accountHolder } = Astro.props;
+---
+
+<div class="text-gray-700 text-center">
+  <p class="font-medium">{bankName}</p>
+  <div class="flex items-center justify-center gap-2">
+    <code class="bg-gray-100 px-2 py-1 rounded cursor-pointer" onclick={`navigator.clipboard.writeText('${accountNumber}')`}>{accountNumber}</code>
+    <button onclick={`navigator.clipboard.writeText('${accountNumber}')`} class="text-blue-600 hover:text-blue-800">
+      <span class="sr-only">Copy account number</span>
+      <Icon name="lucide:copy" class="w-4 h-4" />
+    </button>
+  </div>
+  <p class="text-sm">a.n {accountHolder}</p>
+</div> 
