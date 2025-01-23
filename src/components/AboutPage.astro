@@ -1,0 +1,64 @@
+---
+const missions = [
+    {
+        title: "Dampak untuk Masyarakat",
+        description: "Meningkatkan kualitas hidup bagi masyarakat kurang mampu dengan menerapkan program pendidikan dan pengembangan keterampilan.",
+    },
+    {
+        title: "Pemberdayaan",
+        description: "Memfasilitasi sumber daya, pengetahuan, dan peluang bagi individu untuk menjadi mandiri dan berkembang.",
+    },
+    {
+        title: "Kolaborasi",
+        description: "Bermitra dengan pemangku kepentingan, termasuk individu, perusahaan, dan organisasi lain untuk memperbesar dampak.",
+    },
+    {
+        title: "Keberlanjutan",
+        description: "Mengembangkan solusi jangka panjang yang berdampak dan mengatasi akar permasalahan ketidaksetaraan sosial.",
+    }
+];
+---
+
+<div class="min-h-screen bg-emerald-50 font-poppins overflow-hidden">
+    <main class="container mx-auto px-4 py-8 mt-[5rem]">
+        <section class="mb-12">
+            <h2 class="text-2xl md:text-5xl font-bold text-blue-800 mb-6 text-center">Tentang Kami</h2>
+            <p class="text-base lg:text-xl leading-relaxed mx-auto w-[300px] lg:w-[80%]">
+                Didirikan oleh Rahman Abbas di Jakarta pada 1 November 1996, Rahmania Foundation sepenuhnya berkomitmen untuk 
+                meningkatkan kesejahteraan masyarakat, khususnya pada pilar pendidikan. Memberikan kesempatan kepada anak-anak 
+                untuk mendapatkan akses yang inklusif terhadap pendidikan yang layak. Saat ini, Rahmania Foundation tetap memegang 
+                prinsip dasarnya dengan berbagai program yang secara aktif dijalankan oleh para anggotanya, seperti
+                Smart House (Rumah Pintar) di Jakarta, 
+                Ali Obed Bahajaj Tahfidz House di Sukabumi, 
+                Rumah Yatim Piatu di Aceh, dan 
+                <span><a href="/programs">banyak lagi</span>.
+                <br>
+                Mereka juga memperluas dampaknya untuk berbagi kebaikan dengan secara rutin berinvestasi di usaha kecil dan menengah, 
+                membuka donasi untuk Qurban, dan merayakan Ramadan bersama anak-anak di seluruh Indonesia.
+            </p>
+        </section>
+
+        <section class="mb-12">
+            <div class="bg-emerald-700 w-300px lg:w-[50%] mx-auto text-white rounded-xl p-6 shadow-lg">
+                <h2 class="text-2xl md:text-3xl lg:text-3xl font-bold mb-4">Visi</h2>
+                <p class="leading-relaxed lg:text-lg">
+                    Mencapai kesetaraan sosial dengan memberdayakan masyarakat melalui pendidikan dan peluang, serta menciptakan masyarakat yang mandiri dan sejahtera.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl md:text-3xl lg:text-3xl font-bold text-emerald-800 mb-4">Misi</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                {missions.map((item, index) => (
+                    <div 
+                        class="bg-white rounded-xl shadow-md p-5 border-l-4 border-emerald-500 hover:shadow-xl transition-all duration-300 hover:scale-105"
+                    >
+                        <h3 class="text-2xl font-semibold text-emerald-600 mb-2">{item.title}</h3>
+                        <p class="text-gray-700 lg:text-lg leading-relaxed">{item.description}</p>
+                    </div>
+                ))}
+            </div>
+        </section>
+    </main>
+</div>
