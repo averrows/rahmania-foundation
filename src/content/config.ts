@@ -1,4 +1,3 @@
-// src/content/config.ts
 import { z, defineCollection } from 'astro:content';
 
 const program = defineCollection({
@@ -15,7 +14,20 @@ const program = defineCollection({
     })
 });
 
-// Type for use in components
+const blog = defineCollection({
+    type: 'content',
+    schema: ({ image }) => z.object({
+        title: z.string(),
+        publishDate: z.date(),
+        author: z.string(),
+        image: image().optional(),
+        excerpt: z.string().optional(),
+        tags: z.array(z.string()).optional(),
+        draft: z.boolean().default(false)
+    })
+});
+
 export const collections = {
     programs: program,
+    blog: blog,
 };

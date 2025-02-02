@@ -1,0 +1,66 @@
+---
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import Layout from '../../layouts/Layout.astro';
+import BlogPostCard from '../../components/BlogPostCard.astro';
+
+type BlogEntry = {
+  slug: string;
+  data: {
+    title: string;
+    publishDate: string;
+    author: string;
+    image?: string;
+    excerpt?: string;
+    tags?: string[];
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const blogEntries = await getCollection('blog');
+  return paginate(blogEntries, { pageSize: 10 });
+}
+
+const { page }: {
+  page: {
+    data: BlogEntry[];
+    url: {
+      prev?: string;
+      next?: string;
+    };
+  };
+} = Astro.props;
+---
+
+<Layout title="Rahmania Blog">
+  <main class="container mx-auto mt-20 px-4 py-8">
+    <h1 class="text-5xl font-bold mb-12 text-center text-gray-800">
+      Our Blog
+    </h1>
+
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {page.data.map((post) => (
+        <BlogPostCard post={post} />
+      ))}
+    </div>
+
+    <nav class="mt-12 flex justify-center space-x-4">
+      {page.url.prev ? (
+        <a
+          href={page.url.prev}
+          class="px-5 py-2 text-sm font-medium bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-600 transition duration-300"
+        >
+          &lt; Previous
+        </a>
+      ) : null}
+      {page.url.next ? (
+        <a
+          href={page.url.next}
+          class="px-5 py-2 text-sm font-medium bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-600 transition duration-300"
+        >
+          Next &gt;
+        </a>
+      ) : null}
+    </nav>
+  </main>
+</Layout>
